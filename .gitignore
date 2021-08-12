@@ -6,5 +6,4 @@
 *.iml
 out
 gen
-META-INF
-/META-INF/
+/META-INF/*
