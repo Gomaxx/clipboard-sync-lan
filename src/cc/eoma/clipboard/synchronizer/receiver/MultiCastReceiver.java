@@ -95,7 +95,7 @@ public class MultiCastReceiver {
 
         // 字符串 处理
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        StringSelection transferable = new StringSelection(message.replaceFirst("clipboard-sync-lan", ""));
+        StringSelection transferable = new StringSelection(message.replaceFirst("clipboard-sync-lan:", ""));
         clipboard.setContents(transferable, this.clipboardOwner);
     }
 

@@ -46,13 +46,12 @@ public class SystemClipboardMonitor implements ClipboardOwner {
                 clipboard.setContents(clipboard.getContents(DataFlavor.javaFileListFlavor), this);
             } else if (clipboard.isDataFlavorAvailable(DataFlavor.stringFlavor)) {
                 String text = (String)clipboard.getData(DataFlavor.stringFlavor);
-                System.out.println("lostOwnership-01:" + text);
-                if (!text.startsWith("clipboard-sync-lan")) {
-                    MultiCastSender.send("228.5.6.7", 11222, ("clipboard-sync-lan" + text).getBytes(StandardCharsets.UTF_8));
+                if (!text.startsWith("clipboard-sync-lan:")) {
+                    System.out.println("send message:" + text);
+                    MultiCastSender.send("228.5.6.7", 11222, ("clipboard-sync-lan:" + text).getBytes(StandardCharsets.UTF_8));
                 } else {
-                    text = text.replaceFirst("clipboard-sync-lan", "");
+                    text = text.replaceFirst("clipboard-sync-lan:", "");
                 }
-                System.out.println("lostOwnership-02:" + text);
                 copy.append(text);
                 StringSelection transferable = new StringSelection(text);
                 clipboard.setContents(transferable, this);

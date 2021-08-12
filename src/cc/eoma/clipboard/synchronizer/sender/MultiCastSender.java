@@ -37,7 +37,7 @@ public class MultiCastSender {
 
     public static void main(String[] args) throws Exception {
 //        for (int i = 0; i < 100; i++) {
-//            String xxxx = "clipboard-sync-langoma" + i;
+//            String xxxx = "clipboard-sync-lan:goma" + i;
 //            System.out.println(xxxx);
 //
 //            MultiCastSender.send("228.5.6.7", 11222, xxxx.getBytes(StandardCharsets.UTF_8));

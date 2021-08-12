@@ -13,7 +13,6 @@ import java.awt.datatransfer.Clipboard;
 public class Application {
     public static void main(String[] args) throws Exception {
         SystemClipboardMonitor monitor = new SystemClipboardMonitor();
-
         MultiCastReceiver multiCastReceiver = new MultiCastReceiver(monitor.getOwner());
         multiCastReceiver.listen("228.5.6.7", 11222);
     }
