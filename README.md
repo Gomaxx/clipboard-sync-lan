@@ -7,7 +7,10 @@
 注：暂时只支持剪切板中字符的共享，后续考虑支持文件共享;
 热点（或桥接网络）中的设备用 255.255.255.255 进行广播，热点（或桥接）手机广播地址使用 192.168.43.255
 
-
+<video id="video" controls="" preload="none" poster="http://om2bks7xs.bkt.clouddn.com/2017-08-26-Markdown-Advance-Video.jpg">
+    <source id="mp4" src="./1.mp4" type="video/mp4">
+</video>
+![avatar](./clipboard-sync-lan.png)
 
 
 
