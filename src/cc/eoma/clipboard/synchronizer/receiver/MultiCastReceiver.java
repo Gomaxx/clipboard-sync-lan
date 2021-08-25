@@ -28,6 +28,9 @@ public class MultiCastReceiver implements Receiver {
     private void handler(MulticastSocket multicastSocket, DatagramPacket datagramPacket, MyHandler handler) {
         try {
             multicastSocket.receive(datagramPacket);
+            if (InetAddress.getLocalHost().getHostAddress().equals(datagramPacket.getAddress().getHostAddress())) {
+                return;
+            }
             // String message = new String(datagramPacket.getData(), 0, datagramPacket.getLength());
 
             byte[] xxx = new byte[datagramPacket.getLength()];

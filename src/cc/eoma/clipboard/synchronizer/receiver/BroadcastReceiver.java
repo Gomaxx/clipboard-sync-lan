@@ -2,6 +2,7 @@ package cc.eoma.clipboard.synchronizer.receiver;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 /**
  * @Description:
@@ -32,6 +33,10 @@ public class BroadcastReceiver implements Receiver {
     private void handler(DatagramSocket datagramSocket, DatagramPacket datagramPacket, MyHandler handler) {
         try {
             datagramSocket.receive(datagramPacket);
+            if (InetAddress.getLocalHost().getHostAddress().equals(datagramPacket.getAddress().getHostAddress())) {
+                return;
+            }
+
             // String message = new String(datagramPacket.getData(), 0, datagramPacket.getLength());
             byte[] xxx = new byte[datagramPacket.getLength()];
             System.arraycopy(datagramPacket.getData(), 0, xxx, 0, datagramPacket.getLength());

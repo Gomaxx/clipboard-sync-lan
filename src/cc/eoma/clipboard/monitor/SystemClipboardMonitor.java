@@ -78,10 +78,10 @@ public class SystemClipboardMonitor implements ClipboardOwner {
                 clipboard.setContents(contents, this);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
             clipboard.setContents(contents, this);
         }
-        System.out.println("DataFlavor=" + dataFlavor + "clipboard data:" + copy);
+//        System.out.println("DataFlavor=" + dataFlavor + "clipboard data:" + copy);
     }
 
     private String getDataFlavor(Clipboard clipboard) {

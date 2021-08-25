@@ -33,7 +33,6 @@ public class Synchronizer {
 
     public static void receive(SyncType syncType, ClipboardOwner clipboardOwner) {
         MyHandler handler = new MyHandler(clipboardOwner);
-        // 可以考虑 提炼接口  统一回调 处理
         if (syncType.equals(SyncType.Broadcast)) {
             BroadcastReceiver receiver = new BroadcastReceiver();
             receiver.receive(handler);
