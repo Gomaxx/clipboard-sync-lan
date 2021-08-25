@@ -21,7 +21,7 @@
 1. 任何一端复制信息（或手机打开应用时检测剪切板有信息）时，会将剪切板中的信息发送广播
 2. 广播接收端，接受到信息后会将信息设置到系统剪切板中
 3. 在需要的地方直接粘帖即可
-![avatar](./1.jpg)
+![avatar](./1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
 ![avatar](./clipboard-sync-lan.png)
 
 
