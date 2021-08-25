@@ -1,5 +1,9 @@
 package cc.eoma.clipboard.monitor;
 
+import cc.eoma.clipboard.synchronizer.SyncType;
+import cc.eoma.clipboard.synchronizer.Synchronizer;
+import cc.eoma.clipboard.synchronizer.receiver.BroadcastReceiver;
+import cc.eoma.clipboard.synchronizer.sender.BroadcastSender;
 import cc.eoma.clipboard.synchronizer.sender.MultiCastSender;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -46,12 +50,8 @@ public class SystemClipboardMonitor implements ClipboardOwner {
                 clipboard.setContents(clipboard.getContents(DataFlavor.javaFileListFlavor), this);
             } else if (clipboard.isDataFlavorAvailable(DataFlavor.stringFlavor)) {
                 String text = (String)clipboard.getData(DataFlavor.stringFlavor);
-                if (!text.startsWith("clipboard-sync-lan:")) {
-                    System.out.println("send message:" + text);
-                    MultiCastSender.send("228.5.6.7", 11222, ("clipboard-sync-lan:" + text).getBytes(StandardCharsets.UTF_8));
-                } else {
-                    text = text.replaceFirst("clipboard-sync-lan:", "");
-                }
+                Synchronizer.send(SyncType.Broadcast, text);
+
                 copy.append(text);
                 StringSelection transferable = new StringSelection(text);
                 clipboard.setContents(transferable, this);

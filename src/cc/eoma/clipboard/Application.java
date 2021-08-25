@@ -1,8 +1,8 @@
 package cc.eoma.clipboard;
 
 import cc.eoma.clipboard.monitor.SystemClipboardMonitor;
-import cc.eoma.clipboard.synchronizer.receiver.MultiCastReceiver;
-import java.awt.datatransfer.Clipboard;
+import cc.eoma.clipboard.synchronizer.SyncType;
+import cc.eoma.clipboard.synchronizer.Synchronizer;
 
 /**
  * @Description:
@@ -11,9 +11,8 @@ import java.awt.datatransfer.Clipboard;
  * @Version 1.0
  */
 public class Application {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SystemClipboardMonitor monitor = new SystemClipboardMonitor();
-        MultiCastReceiver multiCastReceiver = new MultiCastReceiver(monitor.getOwner());
-        multiCastReceiver.listen("228.5.6.7", 11222);
+        Synchronizer.receive(SyncType.Broadcast, monitor.getOwner());
     }
 }
