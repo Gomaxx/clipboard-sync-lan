@@ -16,12 +16,11 @@ public class MyHandler {
 
     public void process(byte[] bytes) {
         String message = new String(bytes, 0, bytes.length);
-
         Synchronizer.addReceiveMessage(message);
 
         System.out.println("-----------receive:" + message);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        StringSelection transferable = new StringSelection(message.replaceFirst("clipboard-sync-lan:", ""));
+        StringSelection transferable = new StringSelection(message);
         clipboard.setContents(transferable, this.clipboardOwner);
     }
 }

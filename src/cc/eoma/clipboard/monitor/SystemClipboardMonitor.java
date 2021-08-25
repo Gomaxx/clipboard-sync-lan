@@ -108,12 +108,4 @@ public class SystemClipboardMonitor implements ClipboardOwner {
         }
         return "";
     }
-
-    private void processContents(Transferable transferable) throws Exception {
-        DataFlavor[] flavors = transferable.getTransferDataFlavors();
-        for (DataFlavor flavor : flavors) {
-            Object obj = transferable.getTransferData(flavor);
-            System.out.println(obj.getClass());
-        }
-    }
 }

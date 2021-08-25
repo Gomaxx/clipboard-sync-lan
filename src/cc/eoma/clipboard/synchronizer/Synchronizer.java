@@ -20,7 +20,7 @@ public class Synchronizer {
      * @param message  .
      */
     public static void send(SyncType syncType, String message) {
-        if (messages.contains(getMd5(message))) {
+        if ("".equals(message) || messages.contains(getMd5(message))) {
             return;
         }
         System.out.println("----------------------> send:" + message);
