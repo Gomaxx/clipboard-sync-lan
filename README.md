@@ -23,7 +23,7 @@
 3. 在需要的地方直接粘帖即可
 
 
-<img src="./1.jpg" width="200px" height="430px" /><img src="./clipboard-sync-lan.png" width="800px" height="430px" />
+<img src="./1.jpg" width="220px" height="480px" /><img src="./clipboard-sync-lan.png" width="800px" height="480px" />
 
 
 
