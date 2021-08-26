@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
+import java.nio.charset.StandardCharsets;
 
 public class MyHandler {
 
@@ -15,9 +16,8 @@ public class MyHandler {
     }
 
     public void process(byte[] bytes) {
-        String message = new String(bytes, 0, bytes.length);
+        String message = new String(bytes, 0, bytes.length, StandardCharsets.UTF_8);
         Synchronizer.addReceiveMessage(message);
-
         System.out.println("-----------receive:" + message);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         StringSelection transferable = new StringSelection(message);
